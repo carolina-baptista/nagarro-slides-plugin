@@ -1,0 +1,18 @@
+{
+  "name": "nagarro",
+  "owner": {
+    "name": "Carolina Baptista",
+    "email": "carolina.baptista@nagarro.com"
+  },
+  "metadata": {
+    "description": "Nagarro's Claude plugins: brand-correct slide decks built on the DS Nagarro Master Slides."
+  },
+  "plugins": [
+    {
+      "name": "nagarro-slides",
+      "source": "./",
+      "description": "Build and check Nagarro-branded decks in Claude Slides with the DS Nagarro Master Slides design system.",
+      "version": "0.3.1"
+    }
+  ]
+}
