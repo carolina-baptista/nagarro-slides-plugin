@@ -1,0 +1,15 @@
+{
+  "name": "nagarro-slides",
+  "version": "0.3.1",
+  "description": "Build and check Nagarro-branded decks in Claude Slides with the DS Nagarro Master Slides design system: masters, approved composed layouts, the compose kit and its brand checks.",
+  "author": {
+    "name": "Carolina Baptista, Nagarro"
+  },
+  "keywords": [
+    "nagarro",
+    "slides",
+    "presentation",
+    "design system",
+    "brand"
+  ]
+}
