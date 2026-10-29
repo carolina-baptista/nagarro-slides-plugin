@@ -28,6 +28,7 @@ Cover, chapter covers and closing are dark. Content slides can be light or dark 
 - Only the named styles, exact: TextXS–XL (Equip 400), Heading6–1 and Title (Equip Extended 500, tracking -2% exact).
 - Roles: title `Heading2`; caption `TextXL` `fg-50`; intro `Heading5` `fg-50`; card titles `Heading5`/`Heading6`; card and list copy `TextLG`; lead body `TextXL`; index numerals `Heading6`/`Heading3`; cover and statement `Heading1` + `Heading3` `fg-50`; Fluidic Intelligence cover and chapter covers `Title` + `Heading2` (`fg-75` cover, `fg-50` chapters); Fluidic Intelligence closing `Title`.
 - Never shrink type to fit: move, split or trim with permission.
+- **Body copy is `TextXXL`** (24/32): lead text, column and card descriptions, list items, row leads and metric labels. `TextXL` is for captions and short labels only (the PageHeader caption, step captions, card labels); at 20px, body copy reads like a caption. Card and list copy that the kit sets in `TextLG` stays there unless the user asks.
 
 ## Pictures (DS: Imagery)
 
@@ -45,3 +46,10 @@ Cover, chapter covers and closing are dark. Content slides can be light or dark 
 - No two neighbours on the same layout. Alternate text-led, visual-led and data-led slides, drawing on the whole master library.
 - A statement slide inside the deck never looks like a cover or chapter cover: use a statement master.
 - Charts, diagrams and big numbers on a panel are centred on it, horizontally and vertically.
+- **Content anchors to the bottom.** On slides with a page heading and a block of rows, columns or lists (table rows, value rows, grouped lists), the title and subtitle stay at the top and the main content block sits on the bottom of the content area: its last line ends at y=963, keeping the bottom margin, with the spare space between the heading and the content.
+
+## Fluidic Intelligence imagery (in a Fluidic Intelligence deck)
+
+- The cover can use any dark artwork plate (the cover plate or any chapter artwork 2–10), not only the cover plate; vary it from deck to deck. Artwork 1 stays reserved for chapters about Nagarro.
+- Use the rest of the set on content slides too: **glow fills** (Assets › Glow) as a slide ground under a white panel (`glowPanel`), a card texture or a panel column; **light artwork** (Assets › Light artwork) as a fill for a panel or card on light slides, with the text on its empty side; any artwork as a blurred or faded **layer** (`artLayer`, blur ≤ 80px, opacity 0.1–1) away from body copy. Mark those slides `data-ds-set="fi"`. Keep header and footer text on a dark part of a glow.
+- Asset ids for these come from the DS asset pages: `api/assets/Artwork.md`, `api/assets/Glow.md` and `api/assets/Light-artwork.md`.
