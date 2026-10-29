@@ -26,9 +26,11 @@ Cover, chapter covers and closing are dark. Content slides can be light or dark 
 ## Type (DS: Typography › Rules)
 
 - Only the named styles, exact: TextXS–XL (Equip 400), Heading6–1 and Title (Equip Extended 500, tracking -2% exact).
-- Roles: title `Heading2`; caption `TextXL` `fg-50`; intro `Heading5` `fg-50`; card titles `Heading5`/`Heading6`; card and list copy `TextLG`; lead body `TextXL`; index numerals `Heading6`/`Heading3`; cover and statement `Heading1` + `Heading3` `fg-50`; Fluidic Intelligence cover and chapter covers `Title` + `Heading2` (`fg-75` cover, `fg-50` chapters); Fluidic Intelligence closing `Title`.
+- Roles: title `Heading2`; caption `TextXL` `fg-50`; intro `Heading5` `fg-50`; card titles `Heading5`/`Heading6`; card, list and lead body copy `TextXXL`; index numerals `Heading6`/`Heading3`; cover and statement `Heading1` + `Heading3` `fg-50`; Fluidic Intelligence cover and chapter covers `Title` + `Heading2` (`fg-75` cover, `fg-50` chapters); Fluidic Intelligence closing `Title`.
 - Never shrink type to fit: move, split or trim with permission.
-- **Body copy is `TextXXL`** (24/32): lead text, column and card descriptions, list items, row leads and metric labels. `TextXL` is for captions and short labels only (the PageHeader caption, step captions, card labels); at 20px, body copy reads like a caption. Card and list copy that the kit sets in `TextLG` stays there unless the user asks.
+- **Nothing under `TextLG` (18px)** except the header meta and footer (`TextMD`). `TextLG` is for short captions only (image captions, axis labels, pill badges, index details). Inside metric cards: label `TextXXL`, value `Heading4`, bullets `Heading6`. The kit's checks flag anything smaller.
+- **Body copy is `TextXXL`** (24/32): lead text, column and card descriptions, list items, row leads and metric labels. `TextXL` is for captions and short labels only (the PageHeader caption, step captions, card labels); at 20px, body copy reads like a caption.
+- **Sparse slides take bigger type.** When a slide carries little text (a few figures, one statement, short labels), scale it up to fill the space: main figures and the key statement `Heading1`/`Heading2`, a subtitle `Heading2`, short labels and source lines `Heading5`/`Heading6`, any remaining sentence `TextXXL`. The title stays as it is.
 
 ## Pictures (DS: Imagery)
 
