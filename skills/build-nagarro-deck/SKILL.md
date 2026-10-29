@@ -2,7 +2,7 @@
 name: build-nagarro-deck
 description: "This skill should be used when the user asks to \"make a Nagarro deck\", \"build a presentation in the Nagarro style\", \"rebrand this deck to Nagarro\", \"convert this PPT to the Nagarro master slides\", \"create Nagarro slides for a client\", or otherwise wants a Nagarro-branded slide deck in Claude Slides, from a brief or from an existing .pptx/PDF. It builds the deck with the DS Nagarro Master Slides design system: master templates, the approved composed layouts, the fixed frame, the compose kit and its checks, and a screenshot review loop.\n"
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
 ---
 
 # Build a Nagarro deck in Claude Slides
@@ -28,6 +28,7 @@ First ask the source and the handling questions in one AskUserQuestion round, sk
 - Source: an attached .pptx/PDF, or a brief.
 - May slides be split, trimmed or merged, or must every word stay?
 - Pictures: explain the DS photo library before offering it, unless the start skill already did. It holds about 200 photos, mostly of real Nagarro colleagues in Nagarro offices; good for slides about Nagarro, teams and culture, never to stand for specific people or roles, and not topic images. Options: the DS library, the user's own pictures (now or later, as placeholders), both, or none.
+- Opening style (always ask, for new decks and rebrands alike): the classic openers, or the **Fluidic Intelligence set**, where the cover, agenda, chapter covers and closing sit on dark iridescent 3D artwork. Use that name and describe it in those words. Content slides are the same either way; a deck uses the whole Fluidic Intelligence set or none of it. For a rebrand, say which style the source deck's openers are closest to, and make that the first option, unless the user has already chosen a style.
 - Rebuilding from a PPT: does any slide need a colour outside the DS (a client brand colour, chart series)? Default is DS colours only; agree exceptions slide by slide.
 
 Then, for a deck from a brief, ask for the content as a short numbered checklist in plain text (users answer it point by point; it works far better than a multiple-choice question for free text). Mark the first six as the essentials:
@@ -54,7 +55,7 @@ Never invent a statistic or a quote: research and verify them, and say in the pl
 
 If the design system can't be read (no access), stop and tell the user to ask its owner for access: Carolina Baptista (carolina.baptista@nagarro.com).
 
-Read with the Artifact tool: `project/README.md`, `02-colour.md`, `03-typography.md`, `04-layout.md`, `06-imagery.md`, `08-slide-library.md`, `09-building-decks.md`, `16-composed-layouts.md`, `components/Header/README.md`, `assets/HeaderLogos/README.md`. Read the catalog sections (`12`–`15`) only for masters under consideration. Then download the kit into the session: `project/kit/compose.js`, `project/kit/checks.js`, `project/kit/compose-runner.html`, `project/components/bundle.js` and the four fonts `project/fonts/Equip-Regular.woff2`, `Equip-Medium.woff2`, `EquipExtended-Regular.woff2`, `EquipExtended-Medium.woff2`, keeping the `project/` layout.
+Read with the Artifact tool: `project/README.md`, `02-colour.md`, `03-typography.md`, `04-layout.md`, `06-imagery.md`, `08-slide-library.md`, `09-building-decks.md`, `16-composed-layouts.md`, `components/Header/README.md`, `assets/HeaderLogos/README.md`, and for a Fluidic Intelligence deck `assets/Artwork/README.md`. Read the catalog sections (`12`–`15`) only for masters under consideration. Then download the kit into the session: `project/kit/compose.js`, `project/kit/checks.js`, `project/kit/compose-runner.html`, `project/components/bundle.js` and the four fonts `project/fonts/Equip-Regular.woff2`, `Equip-Medium.woff2`, `EquipExtended-Regular.woff2`, `EquipExtended-Medium.woff2`, keeping the `project/` layout.
 
 ## 3. Slide plan, approved before building
 
@@ -67,14 +68,18 @@ Behind the plan (not shown to the user):
 - **A statement slide must not look like a cover**: covers and chapter covers are dark with a large title; a statement inside the deck uses a statement master (a light panel with supporting figures, a centred problem statement) so it reads as content.
 - Never pad a layout with invented items or cram extra ones in.
 - Keep the text unless trimming was allowed; flag anything that must change.
-- Number chapter covers 01, 02 … in deck order; never show a number without the covers before it.
+- Number chapter covers 01, 02 … in deck order; never show a number without the covers before it. Fluidic Intelligence chapter covers carry no number.
+- **Fluidic Intelligence set** (when chosen): cover (`artCover`) → agenda (`artIndex`) → a chapter cover (`artChapter`) at each chapter → closing (`artClosing`). Chapter titles and subtitles are the deck's own words, never the example titles from Figma.
+  - Agenda: one row per chapter on a single slide. With a detail line per chapter it holds about 8 rows; with titles only, chapters that don't fit in one column go two to a row (about 16). Never split the agenda over two slides: when chapters with details don't fit, drop the details (with the user's OK) so they go two to a row.
+  - Chapter artworks: **artwork 1 is the Nagarro symbol: only on chapters about Nagarro** (who we are, our studio, our capabilities). Artworks 2–6 go on any chapter and may repeat, up to every chapter on the same one. In the plan describe each in everyday words ("the Nagarro-symbol glass shape", "the light ribbon") and let the user choose.
+  - Never mix Fluidic Intelligence openers with the classic cover, chapter or closing layouts in one deck.
 - Where a picture would strengthen a slide and the user has none yet, plan a picture placeholder rather than an unsuitable library photo.
 
 ## 4. Build
 
 1. Create the deck from the Slides type. In the first publish install the DS (`designSystems` record, `project/ds/nagarro/tokens.json` and the two fonts as `{artifact, path}` copies, `faces` `equip` and `equip-extended`).
-2. Upload images and copy the header logos (DS asset group Header logos: Horizontal, Mint, and its on-dark version) into the deck; use the returned `/_blob/` urls.
-3. Composed slides: write a spec and run `scripts/run_kit.py build --ds <DS project dir> --spec spec.json --out <dir>`. The spec is `{cfg, slides:[{layout, content}]}`; `cfg` has `deck`, `client`, `studio`, `year`, `logos {light, dark}` and, for a client deck, `clientLogo {light, dark, width}` (width = 30 × the logo's aspect ratio). A layout that refuses its content names the slide: split it, trim with permission or choose another layout. Never shrink type.
+2. Upload images and copy the header logos (DS asset group Header logos: Horizontal, Mint, and its on-dark version) into the deck; use the returned `/_blob/` urls. For a Fluidic Intelligence deck also copy the artwork plates it uses from the DS asset group Artwork (`art-cover.jpg`, `art-index.jpg`, `art-closing.jpg`, the chosen `art-chapter-N.jpg`) the same way.
+3. Composed slides: write a spec and run `scripts/run_kit.py build --ds <DS project dir> --spec spec.json --out <dir>`. The spec is `{cfg, slides:[{layout, content}]}`; `cfg` has `deck`, `client`, `studio`, `year`, `logos {light, dark}` and, for a client deck, `clientLogo {light, dark, width}` (width = 30 × the logo's aspect ratio); for a Fluidic Intelligence deck, `art {cover, index, closing, chapter: [six urls]}` (a slide then picks its chapter artwork with `art: 1`–`6`; unused chapter slots can repeat a copied url). A layout that refuses its content names the slide: split it, trim with permission or choose another layout. Never shrink type.
 4. Masters: render with the DS engine (`NagarroSlides.render(name, fields, {theme, meta, footer, useExample:false})`) in the same runner page, flatten to pinned elements (see `references/claude-slides-mechanics.md`), and replace the master's header and footer with the kit's `frame()`.
 5. **Centre graphics in their panel**: a chart, diagram or big number that sits on a panel or background is centred on it horizontally and vertically (a donut stays a true circle, inset evenly, with its number centred inside). Re-centre after flattening a master, since fitting it into the frame moves things.
 6. **Picture placeholders**: an `fg-5` box with `radius-15`, at the size and place the picture will take (filling its column to y=963 when beside text), with a centred `TextXL` `fg-50` label "Picture: <what it should show>". Note it in the speaker notes. When the user sends the file, upload it and swap the placeholder for the image at the same position and size (`object-fit: cover`, `radius-15`).
@@ -82,7 +87,7 @@ Behind the plan (not shown to the user):
 
 ## 5. Check before every publish
 
-Run `scripts/run_kit.py check --ds <DS project dir> --slides <deck>/project/slides --order order.json --out <dir>` (add `--local-images` to see pictures). It fails on: malformed markup, colours that aren't DS tokens, text that isn't a named DS style, coloured words inside a text element, anything outside y=156–963 or x=40–1880, overlapping text, images without rounded corners or with no `object-fit`, mint bullets on grey cards, and frames that differ between slides. Fix every issue, then look at the contact sheet (`sheet.png`) and judge what the checks can't: mint balance, rhythm, empty space, image crops.
+Run `scripts/run_kit.py check --ds <DS project dir> --slides <deck>/project/slides --order order.json --out <dir>` (add `--local-images` to see pictures). It fails on: malformed markup, colours that aren't DS tokens, text that isn't a named DS style, coloured words inside a text element, anything outside y=156–963 or x=40–1880, overlapping text, images without rounded corners or with no `object-fit` (the artwork plate, full-bleed and square, is the one allowed exception), mint bullets on grey cards, and frames that differ between slides. Fix every issue, then look at the contact sheet (`sheet.png`) and judge what the checks can't: mint balance, rhythm, empty space, image crops.
 
 ## 6. Review loop
 

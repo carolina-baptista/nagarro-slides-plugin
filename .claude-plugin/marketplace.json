@@ -12,7 +12,7 @@
       "name": "nagarro-slides",
       "source": "./",
       "description": "Build and check Nagarro-branded decks in Claude Slides with the DS Nagarro Master Slides design system.",
-      "version": "0.3.1"
+      "version": "0.4.2"
     }
   ]
 }

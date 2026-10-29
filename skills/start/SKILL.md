@@ -24,7 +24,7 @@ Guide a new user to the right task. Assume this is their first time: no file pat
 3. **Set expectations in two or three short points**, matched to the choice:
    - What happens: a few questions, then a slide-by-slide plan to approve, then the deck, checked against the brand rules.
    - How to give feedback: screenshots with slide numbers; edits made directly in the editor are kept.
-   - Good to know: covers, chapter dividers and the closing are dark; titles stay one colour; pictures have rounded corners; content can be split across slides rather than shrunk.
+   - Good to know: covers, chapter dividers and the closing are dark; titles stay one colour; pictures have rounded corners; content can be split across slides rather than shrunk. A new or rebranded deck can also use the Fluidic Intelligence style: cover, agenda, chapter covers and closing on dark iridescent 3D artwork.
 
 4. **Explain the pictures before asking about them.** A first-time user doesn't know what "the photo library" is. Say it plainly: the design system includes about 200 photos, mostly of real Nagarro colleagues in Nagarro offices (people working together, workshops, laptops, office life). They suit slides about Nagarro, teamwork and culture; they can't stand in for specific people or roles (a client's CTO, a founder), and they're not topic images (no pictures of code, data centres or products). For anything else, the user can send their own pictures, now or later: the plan marks where a picture would help, and the deck gets a clearly labelled picture placeholder there that Claude fills when the user sends the file.
 

@@ -9,7 +9,7 @@ Type **/nagarro-slides:start** (or ask "how do I use the Nagarro slides plugin?"
 ## Skills
 
 - **start**: a plain-language introduction for new users that asks what they want (new deck, rebrand, check) and hands over to the right skill.
-- **build-nagarro-deck**: opens with a short welcome that explains the steps, then builds a new deck from a brief, or a colleague's .pptx/PDF rebranded to the Nagarro Master Slides. Asks a short brief (with a checklist of what makes a deck better: hook, tone, must-have slides, takeaways, your own pictures), shows a plain-language slide-by-slide plan for approval, builds the deck from the master templates and the approved composed layouts, checks every slide, and then works through your screenshots.
+- **build-nagarro-deck**: opens with a short welcome that explains the steps, then builds a new deck from a brief, or a colleague's .pptx/PDF rebranded to the Nagarro Master Slides. Asks a short brief (with a checklist of what makes a deck better: hook, tone, must-have slides, takeaways, your own pictures), shows a plain-language slide-by-slide plan for approval, builds the deck from the master templates and the approved composed layouts (including the optional Fluidic Intelligence set of cover, agenda, chapter covers and closing), checks every slide, and then works through your screenshots.
 - **check-nagarro-deck**: reviews an existing Claude Slides deck against the brand rules and lists what to fix, slide by slide, without changing it.
 
 ## What it relies on

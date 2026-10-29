@@ -6,7 +6,7 @@ kit/, fonts/ (Equip-Regular, Equip-Medium, EquipExtended-Regular, EquipExtended-
 
 Build from a spec (and check what was built):
   run_kit.py build --ds DS/project --spec spec.json --out OUT
-    spec.json = {"cfg": {deck, client, studio, year, logos:{light,dark}, clientLogo?:{light,dark,width}},
+    spec.json = {"cfg": {deck, client, studio, year, logos:{light,dark}, clientLogo?:{light,dark,width}, art?:{cover,index,closing,chapter:[6 urls]}},
                  "slides": [{"layout": "ideaPhoto", "content": {...}}, ...]}
     Writes OUT/slides/<id>.html, OUT/order.json, OUT/report.json and OUT/sheet.png.
     Page numbers are filled in from the slide order when a slide has no "page".
